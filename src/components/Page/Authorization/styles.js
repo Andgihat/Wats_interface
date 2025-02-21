@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Form } from "formik";
-import { Box, TextField, Typography, Button } from "@mui/material";
+import { Box, TextField, Typography, Button, Link } from "@mui/material";
 
 const StyledWrapperBox = styled(Box)`
   display: flex;
@@ -36,12 +36,12 @@ const StyledForm = styled(Form)`
 
 const StyledHeader = styled(Typography)`
   position: relative;
-  Font-weight: 700;
+  font-weight: 700;
   top: 55px;
 `;
 
 const StyledLabel = styled(Typography)`
-  Font-weight: 700;
+  font-weight: 700;
 `;
 
 const StyledSubmitButton = styled(Button)`
@@ -50,12 +50,12 @@ const StyledSubmitButton = styled(Button)`
   position: relative;
   overflow: hidden;
   color: #1c1e21;
-  transition: color 1s cubic-bezier(.66, .00, .34, 1.00);
+  transition: color 1s cubic-bezier(0.66, 0, 0.34, 1);
 
   &:after {
     background-color: #1c1e21;
     border-radius: 50%;
-    content: '';
+    content: "";
     height: 167px;
     min-width: 167px;
     position: absolute;
@@ -64,7 +64,7 @@ const StyledSubmitButton = styled(Button)`
     width: 100%;
     z-index: 0;
     transform: translateY(70px);
-    transition: transform 1s cubic-bezier(.66, .00, .34, 1.00);
+    transition: transform 1s cubic-bezier(0.66, 0, 0.34, 1);
   }
 
   &:hover {
@@ -81,6 +81,18 @@ const StyledSubmitButton = styled(Button)`
   }
 `;
 
+const StyledLink= styled(Link)`
+  position: relative;
+  color: #1c1e21;
+  font-weight: 700;
+  left: 20%; 
+  transition: color 0.3s cubic-bezier(0.66, 0, 0.34, 1);
+
+  &:hover {
+    color: #3b9702;
+  }
+`;
+
 export {
   StyledMainFrame,
   StyledFormField,
@@ -89,4 +101,5 @@ export {
   StyledForm,
   StyledLabel,
   StyledSubmitButton,
+  StyledLink,
 };

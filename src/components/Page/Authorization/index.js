@@ -12,6 +12,7 @@ import {
   StyledForm,
   StyledLabel,
   StyledSubmitButton,
+  StyledLink,
 } from "./styles";
 
 const Authorization = () => {
@@ -84,7 +85,8 @@ const Authorization = () => {
                 }
                 helperText={touched.apiTokenInstance && errors.apiTokenInstance}
               />
-              <StyledSubmitButton variant="outlined"><span>Войти</span></StyledSubmitButton>
+              <StyledSubmitButton type="submit" variant="outlined"><span>Войти</span></StyledSubmitButton>
+              <StyledLink underline="none" href="https://console.green-api.com/?utm_source=hh&utm_medium=vacancy&utm_campaign=fronted_dev&utm_site=https://green-api.com&utm_site=https://green-api.com">Получить токен GREEN-API</StyledLink>
             </StyledForm>
           )}
         </Formik>
