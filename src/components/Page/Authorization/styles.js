@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Form } from "formik";
 import { Box, TextField, Typography, Button, Link } from "@mui/material";
 
-const StyledWrapperBox = styled(Box)`
+export const StyledWrapperBox = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@ const StyledWrapperBox = styled(Box)`
   border-radius: 15px;
 `;
 
-const StyledMainFrame = styled(Box)`
+export const StyledMainFrame = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,11 +22,11 @@ const StyledMainFrame = styled(Box)`
   background-color: #ffffff;
 `;
 
-const StyledFormField = styled(TextField)`
+export const StyledFormField = styled(TextField)`
   margin: 5px 0px 0px 0px;
 `;
 
-const StyledForm = styled(Form)`
+export const StyledForm = styled(Form)`
   display: flex;
   position: relative;
   top: 100px;
@@ -34,17 +34,17 @@ const StyledForm = styled(Form)`
   flex-direction: column;
 `;
 
-const StyledHeader = styled(Typography)`
+export const StyledHeader = styled(Typography)`
   position: relative;
   font-weight: 700;
   top: 55px;
 `;
 
-const StyledLabel = styled(Typography)`
+export const StyledLabel = styled(Typography)`
   font-weight: 700;
 `;
 
-const StyledSubmitButton = styled(Button)`
+export const StyledSubmitButton = styled(Button)`
   margin: 20px 0;
   border-color: #1c1e21;
   position: relative;
@@ -53,7 +53,7 @@ const StyledSubmitButton = styled(Button)`
   transition: color 1s cubic-bezier(0.66, 0, 0.34, 1);
 
   &:after {
-    background-color: #1c1e21;
+    background-color: #1ebe57;
     border-radius: 50%;
     content: "";
     height: 167px;
@@ -81,7 +81,7 @@ const StyledSubmitButton = styled(Button)`
   }
 `;
 
-const StyledLink= styled(Link)`
+export const StyledLink= styled(Link)`
   position: relative;
   color: #1c1e21;
   font-weight: 700;
@@ -92,14 +92,3 @@ const StyledLink= styled(Link)`
     color: #3b9702;
   }
 `;
-
-export {
-  StyledMainFrame,
-  StyledFormField,
-  StyledWrapperBox,
-  StyledHeader,
-  StyledForm,
-  StyledLabel,
-  StyledSubmitButton,
-  StyledLink,
-};
