@@ -1,17 +1,37 @@
 import styled from "styled-components";
-import ChatBackgroundImg from "../../assets/img/Chat_Background.png"
+import ChatBackgroundImg from "../../assets/img/Chat_Background.png";
 import { TextField, Button, Paper, Box } from "@mui/material";
 
 export const StyledChatContainer = styled(Paper)`
   padding: 20px;
   margin-top: 20px;
-  min-height: 600px;
+  height: 600px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   background-color: #f0f2f5;
   gap: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .scroll-container {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #b3b3b3 transparent;
+  }
+
+  .scroll-container::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  .scroll-container::-webkit-scrollbar-thumb {
+    background-color: #b3b3b3;
+    border-radius: 10px;
+  }
+
+  .scroll-container::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 `;
 
 export const StyledMessagesContainer = styled.div`
@@ -28,8 +48,8 @@ export const StyledMessagesContainer = styled.div`
 `;
 
 export const StyledMessageItem = styled.div`
-  align-self: ${({ isOwn }) => (isOwn ? "flex-end" : "flex-start")};
-  background-color: ${({ isOwn }) => (isOwn ? "#d9fdd3" : "#FFF")};
+  align-self: ${(props) => (props.$isOwn ? "flex-end" : "flex-start")};
+  background-color: ${(props) => (props.$isOwn ? "#DCF8C6" : "#FFF")};
   color: #333;
   padding: 10px 15px;
   border-radius: 10px;
@@ -43,7 +63,7 @@ export const StyledFormBox = styled(Box)`
 
 export const StyledMessageInput = styled(TextField)`
   flex: 1;
-  background-color:#ffffff;
+  background-color: #ffffff;
 `;
 
 export const StyledSendButton = styled(Button)`

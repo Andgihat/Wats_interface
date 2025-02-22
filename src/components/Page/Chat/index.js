@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import CreateChat from "../../CreateChat";
@@ -26,6 +26,7 @@ const Chat = () => {
   const [error, setError] = useState("");
 
   const receivedMessageIds = new Set();
+  const intervalRef = useRef(null);
 
   const navigate = useNavigate();
 
@@ -66,6 +67,8 @@ const Chat = () => {
   const handleExit = () => {
     if (isChatOpen) {
       setIsChatOpen(false);
+      clearInterval(intervalRef.current);
+      setChatId('');
     } else {
       navigate('/');
     }
@@ -121,8 +124,13 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(fetchMessages, 5000);
-    return () => clearInterval(interval);
+    if (chatId) {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      intervalRef.current = setInterval(fetchMessages, 5000);
+    }
+    return () => clearInterval(intervalRef.current);
   }, [chatId]);
 
   return (

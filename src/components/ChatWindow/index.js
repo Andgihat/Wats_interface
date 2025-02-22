@@ -24,17 +24,16 @@ const ChatWindow = ({
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
   return (
     <StyledChatContainer elevation={3}>
       <Typography variant="h5" color="primary">
       {chatName || `Чат с: ${chatId}`} 
       </Typography>
 
-      <StyledMessagesContainer>
+      <StyledMessagesContainer className="scroll-container">
         {messages.map((msg, index) => (
-          <StyledMessageItem key={index} isOwn={msg.sender === "Вы"}>
-            <strong>{msg.sender}: </strong> {msg.text}
+          <StyledMessageItem key={index} $isOwn={msg.sender === 'Вы'}>
+            <strong>{msg.sender !== "Вы"? (chatName || msg.sender): msg.sender }: </strong> {msg.text}
           </StyledMessageItem>
         ))}
         <div ref={messagesEndRef} />
@@ -50,17 +49,15 @@ const ChatWindow = ({
           helperText={error}
         />
         <StyledSendButton variant="contained"  onClick={onSendMessage}>
-          <span aria-hidden="true" data-icon="send" class="">
+          <span aria-hidden="true" data-icon="send">
             <svg
               viewBox="0 0 24 19"
               height="24"
               width="24"
               preserveAspectRatio="xMidYMid meet"
-              class=""
               version="1.1"
               x="0px"
               y="0px"
-              enable-background="new 0 0 24 24"
             >
               <title>send</title>
               <path
